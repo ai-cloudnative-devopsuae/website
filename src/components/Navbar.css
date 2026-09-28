@@ -5,7 +5,7 @@
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
 }
 
 .navbar-container {
@@ -40,6 +40,7 @@
   max-width: 250px;
   width: auto;
   object-fit: contain;
+  display: block;
 }
 
 .navbar-menu {
@@ -140,8 +141,8 @@
   }
 
   .logo-image {
-    height: 45px;
-    max-width: 160px;
+    height: 40px;
+    max-width: 140px;
   }
 
   .navbar-toggle {
@@ -156,7 +157,7 @@
     flex-direction: column;
     background-color: var(--white);
     border-bottom: 1px solid var(--border);
-    padding: var(--space-lg);
+    padding: 0 var(--space-lg);
     gap: var(--space-md);
     max-height: 0;
     overflow: hidden;
@@ -165,6 +166,7 @@
 
   .navbar-menu.active {
     max-height: 500px;
+    padding: var(--space-lg);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
@@ -177,5 +179,20 @@
   .nav-cta {
     width: 100%;
     text-align: center;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 375px) {
+  .navbar-container {
+    padding: 0 var(--space-sm);
+  }
+
+  .navbar-menu {
+    padding: 0 var(--space-md);
+  }
+
+  .navbar-menu.active {
+    padding: var(--space-md);
   }
 }
