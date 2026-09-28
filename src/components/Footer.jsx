@@ -3,12 +3,19 @@ import './Footer.css'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const baseUrl = import.meta.env.BASE_URL
 
   return (
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h3>AI Cloud Native DevOps UAE</h3>
+          <a href="#home" className="footer-logo">
+            <img 
+              src={`${baseUrl}community-logo.jpeg`} 
+              alt="AI Cloud Native DevOps UAE" 
+              className="footer-logo-image"
+            />
+          </a>
           <p>A community-driven platform for AI, Cloud Native and DevOps professionals.</p>
           <p className="footer-domain">
             <strong>Primary Domain:</strong> devopsuae.ae<br/>

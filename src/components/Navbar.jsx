@@ -3,6 +3,7 @@ import './Navbar.css'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const baseUrl = import.meta.env.BASE_URL
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -15,10 +16,13 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="navbar-logo">
-          <span className="logo-icon">◆</span>
-          <span className="logo-text">DevOps UAE</span>
-        </div>
+        <a href="#home" className="navbar-logo" onClick={handleLinkClick}>
+          <img 
+            src={`${baseUrl}community-logo.jpeg`} 
+            alt="AI Cloud Native DevOps UAE" 
+            className="logo-image"
+          />
+        </a>
 
         <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <a href="#home" className="nav-link" onClick={handleLinkClick}>Home</a>
