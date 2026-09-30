@@ -54,6 +54,12 @@ export default function FocusAreas() {
             )
           })}
         </div>
+
+        <div className="focus-cta">
+          <h3>Interested in these technologies?</h3>
+          <p>Connect with like-minded professionals, share knowledge, and grow with our community.</p>
+          <a href="#community" className="btn btn-primary">Join Our Community</a>
+        </div>
       </div>
     </section>
   )
