@@ -60,11 +60,6 @@ main {
   }
 }
 
-/* Smooth scrolling for links */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Selection styling */
 ::selection {
   background-color: var(--primary);

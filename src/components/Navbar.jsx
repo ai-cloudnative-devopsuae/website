@@ -1,43 +1,91 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Navbar.css'
+
+// Speakers, Resources and Contact are omitted until those sections exist.
+const NAV_LINKS = [
+  { href: '#home', label: 'Home' },
+  { href: '#about', label: 'About' },
+  { href: '#focus', label: 'Focus Areas' },
+  { href: '#events', label: 'Events' },
+  { href: '#community', label: 'Community' },
+]
+
+// Must match the mobile breakpoint in Navbar.css.
+const DESKTOP_QUERY = '(min-width: 901px)'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const navRef = useRef(null)
+  const toggleRef = useRef(null)
   const baseUrl = import.meta.env.BASE_URL
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  const closeMenu = () => setIsMenuOpen(false)
 
-  const handleLinkClick = () => {
-    setIsMenuOpen(false)
-  }
+  useEffect(() => {
+    if (!isMenuOpen) return
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false)
+        toggleRef.current?.focus()
+      }
+    }
+
+    const handlePointerDown = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    const desktopQuery = window.matchMedia(DESKTOP_QUERY)
+    const handleBreakpointChange = (event) => {
+      if (event.matches) setIsMenuOpen(false)
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener('pointerdown', handlePointerDown)
+    desktopQuery.addEventListener('change', handleBreakpointChange)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('pointerdown', handlePointerDown)
+      desktopQuery.removeEventListener('change', handleBreakpointChange)
+    }
+  }, [isMenuOpen])
 
   return (
-    <nav className="navbar">
+    <nav className="navbar" ref={navRef} aria-label="Main navigation">
       <div className="navbar-container">
-        <a href="#home" className="navbar-logo" onClick={handleLinkClick}>
-          <img 
-            src={`${baseUrl}community-logo.jpeg`} 
-            alt="AI Cloud Native DevOps UAE" 
+        <a href="#home" className="navbar-logo" onClick={closeMenu}>
+          <img
+            src={`${baseUrl}community-logo.jpeg`}
+            alt="AI Cloud Native DevOps UAE - Home"
             className="logo-image"
           />
         </a>
 
-        <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
-          <a href="#home" className="nav-link" onClick={handleLinkClick}>Home</a>
-          <a href="#about" className="nav-link" onClick={handleLinkClick}>About</a>
-          <a href="#focus" className="nav-link" onClick={handleLinkClick}>Focus Areas</a>
-          <a href="#events" className="nav-link" onClick={handleLinkClick}>Events</a>
-          <a href="#community" className="nav-link" onClick={handleLinkClick}>Community</a>
-          <a href="#speakers" className="nav-link" onClick={handleLinkClick}>Speakers</a>
-          <a href="#resources" className="nav-link" onClick={handleLinkClick}>Resources</a>
-          <a href="#contact" className="nav-link" onClick={handleLinkClick}>Contact</a>
-          <button className="nav-cta" onClick={handleLinkClick}>Join Community</button>
-        </div>
+        <button
+          ref={toggleRef}
+          type="button"
+          className="navbar-toggle"
+          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={isMenuOpen}
+          aria-controls="primary-navigation"
+          onClick={() => setIsMenuOpen((open) => !open)}
+        >
+          <span className={`hamburger ${isMenuOpen ? 'active' : ''}`} aria-hidden="true"></span>
+        </button>
 
-        <div className="navbar-toggle" onClick={toggleMenu}>
-          <span className={`hamburger ${isMenuOpen ? 'active' : ''}`}></span>
+        <div
+          id="primary-navigation"
+          className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}
+        >
+          {NAV_LINKS.map(({ href, label }) => (
+            <a key={href} href={href} className="nav-link" onClick={closeMenu}>
+              {label}
+            </a>
+          ))}
+          <a href="#membership" className="nav-cta" onClick={closeMenu}>Join Community</a>
         </div>
       </div>
     </nav>

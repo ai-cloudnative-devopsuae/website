@@ -1,0 +1,122 @@
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: left;
+}
+
+.newsletter-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.newsletter-fields {
+  display: flex;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.newsletter-fields input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem var(--space-sm);
+  font-family: var(--font-sans);
+  /* 1rem prevents iOS zooming in on focus */
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.newsletter-fields input:focus-visible {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.25);
+}
+
+.newsletter-button {
+  padding: 0.75rem var(--space-md);
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.newsletter-button:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.newsletter-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.newsletter-fields input:disabled,
+.newsletter-button:disabled {
+  cursor: not-allowed;
+}
+
+.newsletter-button:disabled {
+  opacity: 0.55;
+}
+
+.newsletter-note {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Light tone (on white or light backgrounds) */
+.newsletter--light .newsletter-label {
+  color: var(--text-dark);
+}
+
+.newsletter--light .newsletter-fields input {
+  color: var(--text-dark);
+  background-color: var(--white);
+  border-color: var(--light-secondary);
+}
+
+.newsletter--light .newsletter-fields input:disabled {
+  background-color: var(--light);
+}
+
+.newsletter--light .newsletter-note {
+  color: var(--text-light);
+}
+
+/* Dark tone (footer) */
+.newsletter--dark .newsletter-label {
+  color: var(--white);
+}
+
+.newsletter--dark .newsletter-fields input {
+  color: var(--white);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.newsletter--dark .newsletter-fields input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter--dark .newsletter-fields input:disabled {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.newsletter--dark .newsletter-note {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.newsletter--dark .newsletter-note strong {
+  color: var(--white);
+}
+
+@media (max-width: 375px) {
+  .newsletter-fields {
+    flex-direction: column;
+  }
+}

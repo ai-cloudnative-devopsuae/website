@@ -22,8 +22,8 @@ export default function Hero() {
           </p>
 
           <div className="hero-buttons">
-            <button className="btn btn-primary">Join Community</button>
-            <button className="btn btn-secondary">Learn More</button>
+            <a href="#about" className="btn btn-primary">Explore Community</a>
+            <a href="#events" className="btn btn-secondary">Upcoming Events</a>
           </div>
 
           <div className="hero-pillars">

@@ -5,7 +5,7 @@ import Introduction from './components/Introduction'
 import FocusAreas from './components/FocusAreas'
 import Events from './components/Events'
 import WhyJoin from './components/WhyJoin'
-import CTA from './components/CTA'
+import Membership from './components/Membership'
 import Footer from './components/Footer'
 import './App.css'
 
@@ -19,7 +19,7 @@ export default function App() {
         <FocusAreas />
         <Events />
         <WhyJoin />
-        <CTA />
+        <Membership />
       </main>
       <Footer />
     </div>
