@@ -58,9 +58,12 @@ export default function Navbar() {
       <div className="navbar-container">
         <a href="#home" className="navbar-logo" onClick={closeMenu}>
           <img
-            src={`${baseUrl}community-logo.jpeg`}
+            src={`${baseUrl}community-logo-256.jpg`}
             alt="AI Cloud Native DevOps UAE - Home"
             className="logo-image"
+            width="256"
+            height="256"
+            decoding="async"
           />
         </a>
 

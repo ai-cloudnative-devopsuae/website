@@ -15,9 +15,13 @@ export default function Footer() {
         <div className="footer-section">
           <a href="#home" className="footer-logo">
             <img 
-              src={`${baseUrl}community-logo.jpeg`} 
+              src={`${baseUrl}community-logo-256.jpg`} 
               alt="AI Cloud Native DevOps UAE - Home" 
               className="footer-logo-image"
+              width="256"
+              height="256"
+              loading="lazy"
+              decoding="async"
             />
           </a>
           <p>Connecting AI, Cloud Native and DevOps professionals across the UAE.</p>
