@@ -6,6 +6,7 @@ export default function FocusAreas() {
   const areas = [
     {
       id: 1,
+      variant: "ai",
       icon: Brain,
       title: "Artificial Intelligence",
       description: "Building practical, production-ready AI, from foundation models to real-world applications.",
@@ -13,6 +14,7 @@ export default function FocusAreas() {
     },
     {
       id: 2,
+      variant: "cloud",
       icon: Cloud,
       title: "Cloud Native",
       description: "Designing and running scalable, resilient platforms on modern cloud infrastructure.",
@@ -20,6 +22,7 @@ export default function FocusAreas() {
     },
     {
       id: 3,
+      variant: "devops",
       icon: Workflow,
       title: "DevOps",
       description: "Delivering software faster and more reliably through automation and shared ownership.",
@@ -39,7 +42,7 @@ export default function FocusAreas() {
           {areas.map(area => {
             const IconComponent = area.icon
             return (
-              <div key={area.id} className="area-card">
+              <div key={area.id} className={`area-card area-card--${area.variant}`}>
                 <div className="area-icon" aria-hidden="true">
                   <IconComponent size={48} />
                 </div>

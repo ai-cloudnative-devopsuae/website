@@ -5,20 +5,31 @@
 }
 
 :root {
-  /* Colors */
-  --primary: #0066ff;
-  --primary-dark: #0052cc;
-  --primary-light: #e6f0ff;
-  --accent: #ff6b35;
-  --accent-light: #ffe6d5;
-  --dark: #0f172a;
-  --dark-secondary: #1e293b;
-  --light: #f8fafc;
-  --light-secondary: #e2e8f0;
-  --text-dark: #0f172a;
-  --text-light: #64748b;
+  /* Colors: Refined Navy (primary/navy to be aligned with the final hero artwork and logo) */
+  --primary: #1d4ed8;
+  --primary-dark: #1e40af;
+  --primary-light: #eef3ff;
+  --primary-border: #c7d5f7;
+  --accent: #e8622c;
+  --accent-light: #fdeee6;
+  --violet: #6d4fd1;
+  --violet-light: #f2eefc;
+  --dark: #0b1f3a;
+  --dark-secondary: #13294b;
+  --light: #f6f8fb;
+  --light-secondary: #dfe5ee;
+  --text-dark: #0b1f3a;
+  --text-light: #475569;
   --white: #ffffff;
-  --border: #e2e8f0;
+  --border: #e3e8f0;
+
+  /* Navy-tinted shadows keep depth subtle and on-brand */
+  --shadow-sm: 0 1px 3px rgba(11, 31, 58, 0.06);
+  --shadow-md: 0 8px 24px rgba(11, 31, 58, 0.08);
+
+  /* Brand gradient (blue to violet, echoing the logo) for icons and accent bars */
+  --brand-gradient: linear-gradient(135deg, var(--primary) 0%, var(--violet) 100%);
+  --card-tint: linear-gradient(180deg, var(--primary-light) 0%, var(--white) 55%);
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -157,8 +168,8 @@ button {
   background-color: var(--primary-dark);
   border-color: var(--primary-dark);
   color: var(--white);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.2);
 }
 
 .btn-secondary {

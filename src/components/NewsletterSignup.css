@@ -32,7 +32,7 @@
 .newsletter-fields input:focus-visible {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.25);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.25);
 }
 
 .newsletter-button {
@@ -101,6 +101,12 @@
 
 .newsletter--dark .newsletter-fields input::placeholder {
   color: rgba(255, 255, 255, 0.5);
+}
+
+/* Brand blue is too dark to read as a focus cue on navy */
+.newsletter--dark .newsletter-fields input:focus-visible {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
 }
 
 .newsletter--dark .newsletter-fields input:disabled {

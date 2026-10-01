@@ -1,6 +1,6 @@
 .why-join {
   padding: var(--space-2xl) 0;
-  background: linear-gradient(135deg, rgba(0, 102, 255, 0.03) 0%, rgba(255, 107, 53, 0.03) 100%);
+  background-color: var(--white);
 }
 
 .why-join-container {
@@ -16,10 +16,11 @@
 }
 
 .benefit-card {
-  background-color: var(--white);
+  background: var(--card-tint);
   padding: var(--space-xl) var(--space-lg);
   border-radius: 1rem;
   border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
   text-align: center;
   transition: var(--transition);
   display: flex;
@@ -29,21 +30,21 @@
 }
 
 .benefit-card:hover {
-  border-color: var(--primary);
-  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.1);
+  border-color: var(--primary-border);
+  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
 .benefit-icon {
-  font-size: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary);
+  color: var(--white);
   width: 64px;
   height: 64px;
-  background-color: var(--primary-light);
-  border-radius: 0.75rem;
+  background: var(--brand-gradient);
+  border-radius: 1rem;
+  box-shadow: 0 6px 16px rgba(29, 78, 216, 0.2);
 }
 
 .benefit-card h3 {
